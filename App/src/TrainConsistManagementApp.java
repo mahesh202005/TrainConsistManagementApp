@@ -1,36 +1,28 @@
-import java.util.LinkedList;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
-public class TrainConsistManagementApp {
+public class TrainConsistManagementApp{
 
     public static void main(String[] args) {
 
         System.out.println("========================================");
-        System.out.println(" UC4 - Maintain Ordered Bogie Consist ");
+        System.out.println(" UC5 - Preserve Insertion Order of Bogies ");
         System.out.println("========================================\n");
 
-        LinkedList<String> trainConsist = new LinkedList<>();
+        Set<String> trainFormation = new LinkedHashSet<>();
 
-        trainConsist.add("Engine");
-        trainConsist.add("Sleeper");
-        trainConsist.add("AC");
-        trainConsist.add("Cargo");
-        trainConsist.add("Guard");
+        trainFormation.add("Engine");
+        trainFormation.add("Sleeper");
+        trainFormation.add("Cargo");
+        trainFormation.add("Guard");
+        trainFormation.add("Sleeper"); // Duplicate - ignored
 
-        System.out.println("Initial Train Consist:");
-        System.out.println(trainConsist);
+        System.out.println("Train Formation (Insertion Order Preserved):");
+        System.out.println(trainFormation);
 
-        trainConsist.add(2, "Pantry Car");
+        System.out.println("\nNote:");
+        System.out.println("Duplicate 'Sleeper' was ignored by LinkedHashSet.");
 
-        System.out.println("\nAfter Inserting 'Pantry Car' at position 2:");
-        System.out.println(trainConsist);
-
-        trainConsist.removeFirst();
-        trainConsist.removeLast();
-
-        System.out.println("\nAfter Removing First and Last Bogie:");
-        System.out.println(trainConsist);
-
-        System.out.println("\nUC4 ordered consist operations completed...");
+        System.out.println("\nUC5 insertion order validation completed...");
     }
 }
